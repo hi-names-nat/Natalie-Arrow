@@ -25,30 +25,31 @@ using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-[ExecuteInEditMode]
-public class OpenTerminalhere
+namespace FallEngine.Editor
 {
-
-
-    [MenuItem("Assets/Open Project In Terminal")]
-    static void OpenTerminalHere()
+    public class FallengineMenuItems
     {
-        
-        ProcessStartInfo info = new ProcessStartInfo();
-
-        switch (Application.platform)
+        [MenuItem("Assets/Open Project In Terminal")]
+        private static void OpenTerminalHere()
         {
-            case RuntimePlatform.WindowsEditor:
-                info.FileName = "cmd";
-                info.Domain = Application.dataPath;
-                break;
-            case RuntimePlatform.LinuxEditor:
-                info.FileName = "bash";
-                break;
-            default:
-                Debug.LogError("This Operating system is not supported at this time.");
-                break;
+
+            var info = new ProcessStartInfo();
+
+            switch (Application.platform)
+            {
+                case RuntimePlatform.WindowsEditor:
+                    info.FileName = "powershell";
+                    info.Domain = Application.dataPath;
+                    break;
+                case RuntimePlatform.LinuxEditor:
+                    info.FileName = "bash";
+                    break;
+                default:
+                    Debug.LogError("This Operating system is not supported at this time.");
+                    break;
+            }
+
+            Process.Start(info);
         }
-        Process.Start(info);
     }
 }
