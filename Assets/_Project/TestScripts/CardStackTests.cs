@@ -14,19 +14,19 @@ namespace Game.Cards
             Stack<Card> exampleCardStack = new Stack<Card>();
             for (uint i = 0; i < 13; i++)
             {
-                exampleCardStack.Push(new Card(Suit.Spade, i));
+                exampleCardStack.Push(new Card(Suit.Spade, (Rank)i));
             }
             for (uint i = 0; i < 13; i++)
             {
-                exampleCardStack.Push(new Card(Suit.Club, i));
+                exampleCardStack.Push(new Card(Suit.Club, (Rank)i));
             }
             for (uint i = 0; i < 13; i++)
             {
-                exampleCardStack.Push(new Card(Suit.Heart, i));
+                exampleCardStack.Push(new Card(Suit.Heart, (Rank)i));
             }
             for (uint i = 0; i < 13; i++)
             {
-                exampleCardStack.Push(new Card(Suit.Diamond, i));
+                exampleCardStack.Push(new Card(Suit.Diamond, (Rank)i));
             }
             Random.InitState(0);
             exampleCardStack = new Stack<Card>(exampleCardStack.OrderBy(c => Random.value));

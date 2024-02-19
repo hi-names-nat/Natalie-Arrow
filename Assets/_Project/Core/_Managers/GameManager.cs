@@ -1,12 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Project.Core._Managers;
 using Game.Cards;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Game
+namespace Game.Victory
 {
     public class GameManager : MonoBehaviour
     {

@@ -4,12 +4,21 @@ using System.Linq;
 
 namespace Game.Cards
 {
-    public enum Suit: int
+    public enum Suit: uint
     {
         Spade = 0,
         Club = 1,
         Heart = 2,
         Diamond = 3,
+    }
+
+    public enum Rank: uint
+    {
+          Two = 0,   Three = 1,
+        Four = 2,  Five = 3,  Six = 4, 
+        Seven = 5, Eight = 6, Nine = 7,
+        Ten = 8, Ace = 9,  Jack = 10, Queen = 11,
+        King = 12
     }
     
     /// <summary>
@@ -18,14 +27,14 @@ namespace Game.Cards
     public struct Card
     {
         public Suit Suit { get; }
-        public uint Rank { get; }
+        public Rank Rank { get; }
 
         /// <summary>
         /// Generate a card from a suit and rank.
         /// </summary>
         /// <param name="suit">the suit the new card will be</param>
         /// <param name="rank">the rank the new card will be (from 0 to 12)</param>
-        public Card(Suit suit, uint rank)
+        public Card(Suit suit, Rank rank)
         {
             Suit = suit;
             Rank = rank;
@@ -81,9 +90,9 @@ namespace Game.Cards
             _cardStack = new Stack<Card>();
             foreach (var suit in (Suit[])Enum.GetValues(typeof(Suit)))
             {
-                for (uint i = 0; i < 13; i++)
+                foreach (var rank in (Rank[])Enum.GetValues(typeof(Rank)))
                 {
-                    _cardStack.Push(new Card(suit, i));
+                    _cardStack.Push(new Card(suit, rank));
                 }
             }
 
@@ -123,7 +132,7 @@ namespace Game.Cards
         {
             if (shouldBeFullDeck && _cardStack.Count != 52) return;
             //todo, expensive space complexity, could replace.
-            _cardStack = new Stack<Card>(_cardStack.OrderBy(c => UnityEngine.Random.value));
+            _cardStack = new Stack<Card>(_cardStack.OrderBy(_ => UnityEngine.Random.value));
         }
 
         /// <summary>
