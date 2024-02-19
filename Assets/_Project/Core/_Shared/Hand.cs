@@ -13,27 +13,45 @@
  * 
  ***********************************************************/
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Game.Cards;
+using Game.UI.Cards;
 
 public class Hand : MonoBehaviour
 {
-    [SerializeField] private List<Card> _cards;
-    
-    void Awake()
-    {
-        
-    }
-    
-    void Start()
-    {
-        
-    }
+    public List<Card> Cards { get; private set; }
+    private List<UICard> _uiCards;
 
-    void Update()
+    private void Awake()
     {
-        
+        _uiCards = GetComponentsInChildren<UICard>().ToList();
+    }
+    
+    public void AddCards(List<Card> cards)
+    {
+        Cards.AddRange(cards);
+
+        foreach (var card in cards)
+        {
+            _uiCards.First(uiCard => uiCard.cardDefinition == card).gameObject.SetActive(true);
+        }
+    }
+    
+    public void AddCard(Card card)
+    {
+        Cards.Add(card);
+        _uiCards.First(uiCard => uiCard.cardDefinition == card).gameObject.SetActive(true);
+    }
+    
+    public void Reset()
+    {
+        foreach (var card in _uiCards.Where(card => card.gameObject.activeSelf))
+        {
+            card.gameObject.SetActive(false);
+        }
     }
 }

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Game.Cards
 {
+    [Serializable]
     public enum Suit: uint
     {
         Spade = 0,
@@ -12,6 +14,7 @@ namespace Game.Cards
         Diamond = 3,
     }
 
+    [Serializable]
     public enum Rank: uint
     {
           Two = 0,   Three = 1,
@@ -22,12 +25,13 @@ namespace Game.Cards
     }
     
     /// <summary>
-    /// Card object, representing a single playing card. Invalid if Rank is above 13.
+    /// Card object, representing a single playing card.
     /// </summary>
+    [Serializable]
     public struct Card
     {
-        public Suit Suit { get; }
-        public Rank Rank { get; }
+        [SerializeField] public Suit Suit;
+        [SerializeField] public Rank Rank;
 
         /// <summary>
         /// Generate a card from a suit and rank.
@@ -145,5 +149,4 @@ namespace Game.Cards
             return _cardStack.ToArray();
         }
     }
-
 }
