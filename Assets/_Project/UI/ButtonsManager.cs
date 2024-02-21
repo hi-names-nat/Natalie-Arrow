@@ -1,63 +1,47 @@
 /*************************************************************
  *
  * Author: Natalie Soltis
- * Date: #DATE#
+ * Date: 2/18/24
  * 
  * What: ButtonsManager.cs
  * 
- * Function: ...
+ * Function: Manage the UI buttons at the bottom of the screen, Acting as a quick way to turn button groups
+ * or individuals on or off.
  *
- * TODO: ...
- *
- * Say thank you on the way out!
- * 
  ***********************************************************/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-enum EUiButtons
+namespace Game.UI
 {
-    Menu,
-    BetUp,
-    BetDown,
-    SeePays,
-    Deal,
-    SpeedUp,
-}
-
-
-public class ButtonsManager : MonoBehaviour
-{
-
-    public void ReturnToMenuButton()
+    public class ButtonsManager : MonoBehaviour
     {
-        
-    }
 
-    public void BetUpButton()
-    {
-        
-    }
+        [SerializeField] [Tooltip("The button corresponding to the Bet up action")]
+        private Button betUpButton;
 
-    public void BetDownButton()
-    {
-        
-    }
+        [SerializeField] [Tooltip("The button corresponding to the Bet down action")]
+        private Button betDownButton;
 
-    public void SeePaysButton()
-    {
-        
-    }
-    
-    public void DealButton()
-    {
-        
-    }
+        [SerializeField] [Tooltip("The button corresponding to the Deal action")]
+        private Button dealButton;
 
-    public void SpeedUpButton()
-    {
-        
+        public void DisableBetButtons()
+        {
+            betUpButton.interactable = false;
+            betDownButton.interactable = false;
+        }
+
+        public void EnableBetButtons()
+        {
+            betUpButton.interactable = true;
+            betDownButton.interactable = true;
+        }
+
+        public void SetDealEnabled(bool setEnabled)
+        {
+            dealButton.interactable = setEnabled;
+        }
     }
 }

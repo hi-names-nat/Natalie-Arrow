@@ -1,3 +1,16 @@
+/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/15/23
+ * 
+ * What: StandardPokerVictoryImplementations.cs
+ * 
+ * Function: Contains all the victory state checks that are in the standard poker game type.
+ * All static as it's called by the scriptableobject.
+ *
+ * 
+ ***********************************************************/
+
 using System.Collections.Generic;
 using System.Linq;
 using Game.Cards;

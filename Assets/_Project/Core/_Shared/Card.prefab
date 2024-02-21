@@ -202,7 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3db370b69efdd4395cea91822f41f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdIndicator: {fileID: 2109923809854355619}
+  cardDefinition:
+    Suit: 0
+    Rank: 0
 --- !u!114 &7443289373763509795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +343,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.5
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad;
+    [SerializeField] private int sceneIndex;
     //todo [SerializeField] private Gamemode _gamemode
     
     public void LoadSelectedScene()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

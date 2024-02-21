@@ -1,3 +1,15 @@
+/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/18/24
+ * 
+ * What: CardManager.cs
+ * 
+ * Function: Includes the Card struct and Rank/Suit enums.
+ * Manages a queue of cards that acts as the deck.
+ *
+ ***********************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +95,7 @@ namespace Game.Cards
 
     public class CardManager
     { 
-        private Stack<Card> _cardStack;
+        private Queue<Card> _cardStack;
 
         /// <summary>
         /// Creates a new CardManager, containing a new, shuffled deck of cards.
@@ -91,12 +103,13 @@ namespace Game.Cards
         public CardManager()
         {
 
-            _cardStack = new Stack<Card>();
+            _cardStack = new Queue<Card>();
             foreach (var suit in (Suit[])Enum.GetValues(typeof(Suit)))
             {
                 foreach (var rank in (Rank[])Enum.GetValues(typeof(Rank)))
                 {
-                    _cardStack.Push(new Card(suit, rank));
+                    
+                    _cardStack.Enqueue(new Card(suit, rank));
                 }
             }
 
@@ -109,8 +122,19 @@ namespace Game.Cards
         /// <returns>The removed card</returns>
         public Card GetCard()
         {
-            if (_cardStack.Count != 0) return _cardStack.Pop();
+            if (_cardStack.Count != 0) return _cardStack.Dequeue();
             else throw new ArgumentOutOfRangeException($"CardManager has run out of cards.");
+        }
+
+        public List<Card> GetCards(uint number)
+        {
+            List<Card> cards = new List<Card>();
+            for (int i = 0; i < number; i++)
+            {
+                cards.Add(GetCard());
+            }
+
+            return cards;
         }
 
         /// <summary>
@@ -124,8 +148,13 @@ namespace Game.Cards
             if (_cardStack.Contains(card) && !allowCopies) 
                 return false;
 
-            _cardStack.Push(card); 
+            _cardStack.Enqueue(card); 
             return true;
+        }
+
+        public bool ReturnCards(List<Card> cards, bool allowCopies = false)
+        {
+            return cards.All(c => ReturnCard(c));
         }
 
         /// <summary>
@@ -136,7 +165,7 @@ namespace Game.Cards
         {
             if (shouldBeFullDeck && _cardStack.Count != 52) return;
             //todo, expensive space complexity, could replace.
-            _cardStack = new Stack<Card>(_cardStack.OrderBy(_ => UnityEngine.Random.value));
+            _cardStack = new Queue<Card>(_cardStack.OrderBy(_ => UnityEngine.Random.value));
         }
 
         /// <summary>

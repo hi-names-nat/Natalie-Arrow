@@ -1,7 +1,7 @@
 /*************************************************************
  *
  * Author: Natalie Soltis
- * Date: #DATE#
+ * Date: 2/18/24
  * 
  * What: HoldIndicator.cs
  * 
@@ -10,9 +10,6 @@
  * a random gameObject. Also helps with enabling and disabling
  * the gameObject.
  *
- * TODO: ...
- *
- * Say thank you on the way out!
  * 
  ***********************************************************/
 
@@ -25,6 +22,10 @@ namespace Game.UI.Cards
 
  public class HoldIndicator : MonoBehaviour
  {
+  /// <summary>
+  /// Set if the object is currently held. Just disables this holdindictor object
+  /// </summary>
+  /// <param name="held">Should the Hold indicator be displayed?</param>
   internal void SetHeld(bool held)
   {
    gameObject.SetActive(held);
