@@ -30,9 +30,6 @@ namespace Game.Blackjack
     [CreateAssetMenu(fileName = "New BlackJack Gametype", menuName = "Game/GameType/BlackJack", order = 0)]
     public class BlackjackGameType : BaseGameType
     {
-        [SerializeField] [Tooltip("the score that the player & dealers want to hit")] 
-        private int goalScore = 21;
-
         [SerializeField] [Tooltip("The payout when the player wins, multiplied by their bet down.")] 
         private int payout;
 
@@ -92,6 +89,9 @@ namespace Game.Blackjack
             //Enable buttons for hit and stay
             buttonsManager.SetBlackJackDealEnabled(true);
             
+            //Set the initial message for the player's hand value
+            betManager.UpdateHandState(BlackJackImplementations.GetHandValue(playerHand.Cards, false).ToString());
+            
             buttonsManager.SetButtonText("Stay", UIButtons.Deal);
         }
         
@@ -105,7 +105,7 @@ namespace Game.Blackjack
         {
             buttonsManager.SetBlackJackDealEnabled(false);
             dealerHand.UnhideHand();
-            while (BlackJackImplementations.GetHandValue(dealerHand.Cards, goalScore, true) <= 16)
+            while (BlackJackImplementations.GetHandValue(dealerHand.Cards, true) <= 16)
             {
                 dealerHand.AddCard(cardManager.GetCard());
             }
@@ -120,9 +120,10 @@ namespace Game.Blackjack
         private void EndGame(
             Hand playerHand, Hand dealerHand, BetManager betManager)
         {
-            var dealerValue = BlackJackImplementations.GetHandValue(dealerHand.Cards, goalScore, true);
-            var playerValue = BlackJackImplementations.GetHandValue(playerHand.Cards, goalScore, false);
+            var dealerValue = BlackJackImplementations.GetHandValue(dealerHand.Cards, true);
+            var playerValue = BlackJackImplementations.GetHandValue(playerHand.Cards, false);
             
+            var goalScore = BlackJackImplementations.goalScore;
             if (goalScore - playerValue < 0 || dealerValue == goalScore)
             {
                 betManager.ShowEndMessage("Dealer wins");
@@ -136,7 +137,7 @@ namespace Game.Blackjack
                 return;
             }
 
-            if (goalScore-dealerValue < goalScore && goalScore-dealerValue > 0)
+            if (goalScore-dealerValue < goalScore-playerValue && goalScore-dealerValue > 0)
             {
                 betManager.ShowEndMessage("Dealer wins");
                 return;
@@ -174,9 +175,16 @@ namespace Game.Blackjack
             
             //Hide the End of round message.
             betManager.HideEndMessage();
+            //Hide hand state (numeric value)
+            betManager.HideHandState();
             
             buttonsManager.SetButtonText("Deal", UIButtons.Deal);
             buttonsManager.SetBlackJackDealEnabled(false);
+        }
+        
+        public override void Reset()
+        {
+            _state = State.Entry;
         }
     }
 }

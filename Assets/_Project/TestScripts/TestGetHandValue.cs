@@ -18,7 +18,7 @@ namespace Game.Cards
                 new Card(Suit.Club, Rank.Ace),
                 new Card(Suit.Club, Rank.King),
             });
-            Assert.That(BlackJackImplementations.GetHandValue(hand, 21, false) == 21);
+            Assert.That(BlackJackImplementations.GetHandValue(hand, false) == 21);
             
             hand.Clear();
             
@@ -29,8 +29,8 @@ namespace Game.Cards
                 new Card(Suit.Club, Rank.Ace),
                 new Card(Suit.Club, Rank.Ace),
             });
-            Assert.That(BlackJackImplementations.GetHandValue(hand, 21, false) == 13);
-            Assert.That(BlackJackImplementations.GetHandValue(hand, 21, true) == 33);
+            Assert.That(BlackJackImplementations.GetHandValue(hand, false) == 13);
+            Assert.That(BlackJackImplementations.GetHandValue(hand, true) == 33);
             
             hand.Clear();
             
@@ -40,7 +40,17 @@ namespace Game.Cards
                 new Card(Suit.Club, Rank.King),
                 new Card(Suit.Club, Rank.Two),
             });
-            Assert.That(BlackJackImplementations.GetHandValue(hand, 21, false) == 13);
+            Assert.That(BlackJackImplementations.GetHandValue(hand, false) == 13);
+            
+            hand.Clear();
+            
+            hand.AddRange(new List<Card>()
+            {
+                new Card(Suit.Club, Rank.Two),
+                new Card(Suit.Club, Rank.Queen),
+                new Card(Suit.Club, Rank.Six),
+            });
+            Assert.That(BlackJackImplementations.GetHandValue(hand, false) == 18);
         }
     }
 }

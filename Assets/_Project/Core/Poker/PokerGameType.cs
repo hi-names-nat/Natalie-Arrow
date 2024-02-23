@@ -43,12 +43,13 @@ namespace Game.Poker
         /// The current state of the game. Enters on Entry, obviously.
         /// </summary>
         private State _state = State.Entry;
-        
+
         /// <summary>
         /// The main state manager. Enables/Disables components and functionality as the game progresses. 
         /// </summary>
         /// <param name="cardManager">the Cardmanager, passed from GameManager</param>
         /// <param name="handManager">the Player's Hand, passed from GameManager</param>
+        /// <param name="_">Dealer's hand. Unused here.</param>
         /// <param name="victoryManager">the victory manager, passed from GameManager</param>
         /// <param name="betManager">the bet manager, passed from GameManager</param>
         /// <param name="buttonsManager">the button manager, passed from GameManager</param>
@@ -61,11 +62,11 @@ namespace Game.Poker
             switch (_state)
             {
                 case State.Entry:
-                    InitialDeal(cardManager, handManager, betManager, buttonsManager);
+                    InitialDeal(cardManager, handManager, betManager, buttonsManager, victoryManager);
                     _state = State.Redeal;
                     break;
                 case State.Redeal:
-                    ReDeal(cardManager, handManager);
+                    ReDeal(cardManager, handManager, victoryManager, betManager);
                     _state = State.End;
                     break;
                 case State.End:
@@ -88,8 +89,9 @@ namespace Game.Poker
         /// <param name="handManager">The hand to add the dealt cards to.</param>
         /// <param name="betManager">The bet manager, to lock in a bet</param>
         /// <param name="buttonsManager">The buttons manager, to disable changing the bet after it's set.</param>
+        /// <param name="victoryManager">The victory manager, to do card state victory checking.</param>
         private static void InitialDeal(
-            CardManager cardManager, Hand handManager, BetManager betManager, ButtonsManager buttonsManager)
+            CardManager cardManager, Hand handManager, BetManager betManager, ButtonsManager buttonsManager, VictoryManager victoryManager)
         {
             var cards = cardManager.GetCards(HandSize);
             handManager.AddCards(cards);
@@ -98,6 +100,10 @@ namespace Game.Poker
             
             //Enable card holding
             handManager.EnableUiCardInteraction();
+
+            //Display the current state of the hand, if it would win.
+            var currentstate = victoryManager.FindIfWon(handManager.Cards);
+            if (currentstate != null) betManager.UpdateHandState(currentstate.victoryName);
         }
 
         /// <summary>
@@ -105,8 +111,10 @@ namespace Game.Poker
         /// </summary>
         /// <param name="cardManager">The card manager to replace/ redeal cards from</param>
         /// <param name="handManager">The hand to remove / add new cards to</param>
+        /// <param name="victoryManager">The victory manager, to check if the player's hand is a winning hand</param>
+        /// <param name="betManager">The bet manager, to update the hand state HUD in the case that there's a winning hand</param>
         private static void ReDeal(
-            CardManager cardManager, Hand handManager)
+            CardManager cardManager, Hand handManager, VictoryManager victoryManager, BetManager betManager)
         {
             var cards = handManager.RemoveUnheldCards();
             //Replace cards back into the cardManager
@@ -116,6 +124,12 @@ namespace Game.Poker
             
             //Disable card holding
             handManager.DisableUiCardInteraction();
+                        
+            //Display the current state of the hand, if it would win, or hide if none.
+            var currentstate = victoryManager.FindIfWon(handManager.Cards);
+            if (currentstate != null) betManager.UpdateHandState(currentstate.victoryName);
+            else betManager.HideHandState();
+
         }
 
         /// <summary>
@@ -133,7 +147,7 @@ namespace Game.Poker
             {
                 //Different behaviors for if it was a jackpot (max value, max bet) or not.
                 if (victoryCondition.isJackpot) betManager.UpdateBank(victoryCondition.jackpotPayout, true);
-                else betManager.UpdateBank(victoryCondition.payout, false);
+                else betManager.UpdateBank(victoryCondition.payout);
                 
                 betManager.ShowEndMessage(victoryCondition.victoryName);
             }
@@ -169,6 +183,14 @@ namespace Game.Poker
             
             //Hide the End of round message.
             betManager.HideEndMessage();
+            
+            //Hide hand state, as no hand.
+            betManager.HideHandState();
+        }
+
+        public override void Reset()
+        {
+            _state = State.Entry;
         }
     }
 }

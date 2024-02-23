@@ -15,11 +15,11 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 1
-    y: 51
+    y: 172
     width: 1902
     height: 759
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 25
+  controlID: 27
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -70,9 +70,9 @@ MonoBehaviour:
     height: 709
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &4
@@ -94,11 +94,11 @@ MonoBehaviour:
     y: 0
     width: 398
     height: 509
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &5
@@ -122,10 +122,10 @@ MonoBehaviour:
     height: 200
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 13}
-  - {fileID: 18}
+  - {fileID: 14}
+  - {fileID: 19}
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &6
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 26
+  controlID: 16
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 27
+  controlID: 17
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,14 +270,44 @@ MonoBehaviour:
     height: 509
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
   - {fileID: 17}
+  - {fileID: 18}
+  - {fileID: 13}
   - {fileID: 12}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13953, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 800, y: 250}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Package Manager
+    m_Image: {fileID: -2824328813065806953, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 402
+    y: 73
+    width: 1174
+    height: 665
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,22 +327,22 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 349
-    y: 73
-    width: 1010
-    height: 657
+    x: 588
+    y: 205
+    width: 1163
+    height: 488
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 114
+    ID: 6913
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
-    - 440
-    - 147
+    - 313
+    - 105
     relativeSizes:
     - 0.75
     - 0.25
@@ -322,7 +352,7 @@ MonoBehaviour:
     maxSizes:
     - 0
     - 0
-    lastTotalSize: 587
+    lastTotalSize: 418
     splitSize: 6
     xOffset: 0
     m_Version: 1
@@ -332,14 +362,14 @@ MonoBehaviour:
     oldSplitSize: 0
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
-    m_Window: {fileID: 12}
+    m_Window: {fileID: 13}
     m_NewResultList:
     - id: 1005
       uniqueId: '[Natalie_Arrow][suite]'
       name: Natalie_Arrow
       fullName: Natalie_Arrow
-      resultStatus: 0
-      duration: 0.1825354
+      resultStatus: 1
+      duration: 4.7647467
       messages: 
       output: 
       stacktrace: 
@@ -354,8 +384,8 @@ MonoBehaviour:
       uniqueId: '[TestScripts.dll][suite]'
       name: TestScripts.dll
       fullName: /home/natalie/Repos/Unity/Natalie-Arrow/Library/ScriptAssemblies/TestScripts.dll
-      resultStatus: 0
-      duration: 0.104751
+      resultStatus: 1
+      duration: 4.7329497
       messages: 
       output: 
       stacktrace: 
@@ -370,8 +400,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/[Game][suite]
       name: Game
       fullName: Game
-      resultStatus: 0
-      duration: 0.0679744
+      resultStatus: 1
+      duration: 4.7260833
       messages: 
       output: 
       stacktrace: 
@@ -386,8 +416,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/[TestScripts][Game.Cards][suite]
       name: Cards
       fullName: Game.Cards
-      resultStatus: 0
-      duration: 0.0636208
+      resultStatus: 1
+      duration: 4.722304
       messages: 
       output: 
       stacktrace: 
@@ -402,8 +432,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/[TestScripts][Game.Cards.CardStackTests][suite]
       name: CardStackTests
       fullName: Game.Cards.CardStackTests
-      resultStatus: 0
-      duration: 0.0342258
+      resultStatus: 1
+      duration: 0.0440035
       messages: 
       output: 
       stacktrace: 
@@ -418,8 +448,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/CardStackTests/[TestScripts][Game.Cards.CardStackTests.TestStackGenerationAndShuffle]
       name: TestStackGenerationAndShuffle
       fullName: Game.Cards.CardStackTests.TestStackGenerationAndShuffle
-      resultStatus: 0
-      duration: 0.0125175
+      resultStatus: 1
+      duration: 0.0245745
       messages: 
       output: 
       stacktrace: 
@@ -431,12 +461,45 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1006
       parentUniqueId: TestScripts.dll/Game/Cards/[TestScripts][Game.Cards.CardStackTests][suite]
+    - id: 1003
+      uniqueId: TestScripts.dll/Game/Cards/[TestScripts][Game.Cards.TestGetHandValue][suite]
+      name: TestGetHandValue
+      fullName: Game.Cards.TestGetHandValue
+      resultStatus: 1
+      duration: 4.6078773
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1015
+      parentUniqueId: TestScripts.dll/Game/[TestScripts][Game.Cards][suite]
+    - id: 1004
+      uniqueId: TestScripts.dll/Game/Cards/TestGetHandValue/[TestScripts][Game.Cards.TestGetHandValue.TestGetHandValues]
+      name: TestGetHandValues
+      fullName: Game.Cards.TestGetHandValue.TestGetHandValues
+      resultStatus: 1
+      duration: 4.5750327
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: TestScripts.dll/Game/Cards/[TestScripts][Game.Cards.TestGetHandValue][suite]
     - id: 1008
       uniqueId: TestScripts.dll/Game/Cards/[TestScripts][Game.Cards.TestPokerVictories][suite]
       name: TestPokerVictories
       fullName: Game.Cards.TestPokerVictories
-      resultStatus: 0
-      duration: 0.0136596
+      resultStatus: 1
+      duration: 0.0657017
       messages: 
       output: 
       stacktrace: 
@@ -451,8 +514,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestFlush]
       name: TestFlush
       fullName: Game.Cards.TestPokerVictories.TestFlush
-      resultStatus: 0
-      duration: 0.0017653
+      resultStatus: 1
+      duration: 0.0030215
       messages: 
       output: 
       stacktrace: 
@@ -468,8 +531,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestFourKind]
       name: TestFourKind
       fullName: Game.Cards.TestPokerVictories.TestFourKind
-      resultStatus: 0
-      duration: 0.0001333
+      resultStatus: 1
+      duration: 0.0016531
       messages: 
       output: 
       stacktrace: 
@@ -485,8 +548,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestFullHouse]
       name: TestFullHouse
       fullName: Game.Cards.TestPokerVictories.TestFullHouse
-      resultStatus: 0
-      duration: 0.0000904
+      resultStatus: 1
+      duration: 0.0012762
       messages: 
       output: 
       stacktrace: 
@@ -502,8 +565,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestRoyalFlush]
       name: TestRoyalFlush
       fullName: Game.Cards.TestPokerVictories.TestRoyalFlush
-      resultStatus: 0
-      duration: 0.004496
+      resultStatus: 1
+      duration: 0.0052801
       messages: 
       output: 
       stacktrace: 
@@ -519,8 +582,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestStraight]
       name: TestStraight
       fullName: Game.Cards.TestPokerVictories.TestStraight
-      resultStatus: 0
-      duration: 0.0004579
+      resultStatus: 1
+      duration: 0.0024341
       messages: 
       output: 
       stacktrace: 
@@ -536,8 +599,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestThreeKind]
       name: TestThreeKind
       fullName: Game.Cards.TestPokerVictories.TestThreeKind
-      resultStatus: 0
-      duration: 0.0001084
+      resultStatus: 1
+      duration: 0.0005939
       messages: 
       output: 
       stacktrace: 
@@ -553,8 +616,8 @@ MonoBehaviour:
       uniqueId: TestScripts.dll/Game/Cards/TestPokerVictories/[TestScripts][Game.Cards.TestPokerVictories.TestTwoPair]
       name: TestTwoPair
       fullName: Game.Cards.TestPokerVictories.TestTwoPair
-      resultStatus: 0
-      duration: 0.0000816
+      resultStatus: 1
+      duration: 0.0006967
       messages: 
       output: 
       stacktrace: 
@@ -566,13 +629,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1003
       parentUniqueId: TestScripts.dll/Game/Cards/[TestScripts][Game.Cards.TestPokerVictories][suite]
-    m_ResultText: 
+    m_ResultText: TestStackGenerationAndShuffle (0.025s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7456dd7e
-      m_LastClickedID: 2128434804
-      m_ExpandedIDs: bca13c949fa3c0d680317703623c6410009ec81abbe6b95bffffff7f
+      m_SelectedIDs: c61b41b9
+      m_LastClickedID: -1186915386
+      m_ExpandedIDs: bca13c949fa3c0d680317703623c6410009ec81a7953345abbe6b95bffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -600,7 +663,7 @@ MonoBehaviour:
       - Uncategorized
     m_SelectedOption: 0
   m_EditModeTestListGUI:
-    m_Window: {fileID: 12}
+    m_Window: {fileID: 13}
     m_NewResultList:
     - id: 1000
       uniqueId: '[Natalie_Arrow][suite]'
@@ -650,7 +713,7 @@ MonoBehaviour:
       selectedCategoryMask: 0
       availableCategories:
       - Uncategorized
---- !u!114 &13
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -671,7 +734,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1
-    y: 590
+    y: 711
     width: 1562
     height: 179
   m_ViewDataDictionary: {fileID: 0}
@@ -690,23 +753,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Project/Core/Blackjack
+    - Assets/_Project/Scenes
     m_Globs: []
     m_OriginalText: 
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Project/Core/Blackjack
+  - Assets/_Project/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Repos\Unity\Natalie_Arrow
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 139}
-    m_SelectedIDs: cc6e0000
-    m_LastClickedID: 28364
-    m_ExpandedIDs: 000000004a6e00004c6e00004e6e0000506e0000526e0000546e000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 120}
+    m_SelectedIDs: 900d0100
+    m_LastClickedID: 69008
+    m_ExpandedIDs: 0000000070750000727500007475000076750000787500007a750000860d01005467010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -734,7 +797,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004a6e00004c6e00004e6e0000506e0000526e0000546e0000
+    m_ExpandedIDs: 0000000070750000727500007475000076750000787500007a750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -759,8 +822,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e65af9ff
-    m_LastClickedInstanceID: -435482
+    m_SelectedInstanceIDs: 8635feff
+    m_LastClickedInstanceID: -117370
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
@@ -790,7 +853,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &14
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -811,7 +874,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1564
-    y: 81
+    y: 202
     width: 338
     height: 688
   m_ViewDataDictionary: {fileID: 0}
@@ -832,7 +895,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -853,7 +916,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1
-    y: 81
+    y: 202
     width: 397
     height: 488
   m_ViewDataDictionary: {fileID: 0}
@@ -864,23 +927,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: caf7ffff
-      m_LastClickedID: -2102
-      m_ExpandedIDs: caf7fffff0f7ffff28fbffff34fbffff36fbffff
+      m_SelectedIDs: 82750000
+      m_LastClickedID: 0
+      m_ExpandedIDs: ba2afeffc22afeff4232feff7a35feff8635feff8835feff2a36feff6636feff3c4afeff1856feffa256feff045afeff425afeffa05bfeff5c5cfeff9a5cfeffbc5dfeff0e5ffeff4c5ffeff6e60feffb061feffee61feff0c63feffba63fefff863feff5665feff2266feff6066feff8267feff3868feff7668feff9869feffe66afeff246bfeff466cfeff986dfeffd66dfefff86efeffb26ffefff06ffeff1271feffe872feff2673feff5a74feff7c75feffba75feffd876feff9e7bfeffdc7bfeff1e7dfeff9a7efeffd87efeff0280feff248bfeff628bfeff808cfeff1e72ffff2072ffff5e72ffff7e73ffff66b9ffff78b9ffff7ab9ffff76ccffff74d8ffff68f0ffff70f0ffff28fbffff34fbffff36fbffff280e0100320e0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Hit Button
-        m_OriginalName: Hit Button
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -142522
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -890,7 +953,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -911,7 +974,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 399
-    y: 81
+    y: 202
     width: 1163
     height: 488
   m_ViewDataDictionary: {fileID: 0}
@@ -1185,7 +1248,7 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0.125, y: 0.125}
+      m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
         m_Target: 1
@@ -1222,14 +1285,14 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.07074263, y: -0.014365977, z: 0.0010207742, w: -0.9973818}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1250,7 +1313,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 399
-    y: 81
+    y: 202
     width: 1163
     height: 488
   m_ViewDataDictionary: {fileID: 0}
@@ -1322,7 +1385,7 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1343,7 +1406,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1
-    y: 590
+    y: 711
     width: 1562
     height: 179
   m_ViewDataDictionary: {fileID: 0}

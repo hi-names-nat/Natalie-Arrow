@@ -30,12 +30,13 @@ namespace Game
 
         [SerializeField] [Tooltip("The player's maximum hand size")]
         public int MaxPlayerHand = 13;
-        
+
         /// <summary>
         /// Called when the game continues
         /// </summary>
         /// <param name="cardManager">the Cardmanager in the scene</param>
-        /// <param name="handManager">the Hand in the scene</param>
+        /// <param name="playerHand">the Hand in the scene</param>
+        /// <param name="dealerHand"></param>
         /// <param name="victoryManager">the Victorymanager in the scene</param>
         /// <param name="betManager">the BetManager in the scene</param>
         /// <param name="buttonsManager">the ButtonsManager in the scene</param>
@@ -45,6 +46,11 @@ namespace Game
             CardManager cardManager, Hand playerHand, Hand dealerHand, 
             VictoryManager victoryManager, BetManager betManager, ButtonsManager buttonsManager)
         {
+        }
+
+        public virtual void Reset()
+        {
+            throw new NotImplementedException();
         }
     }
 }

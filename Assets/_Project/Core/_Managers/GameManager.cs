@@ -12,6 +12,7 @@
  ***********************************************************/
 
 using _Project.Core._Managers;
+using Game.Blackjack;
 using Game.Cards;
 using Game.UI;
 using Game.UI.Cards;
@@ -30,6 +31,7 @@ namespace Game
         private VictoryManager victoryManager;
         [SerializeField] [Tooltip("The player's hand, responsible for managing the player's hand and associated UI")] 
         private Hand playerHand;
+        [Header("Blackjack Only")]
         [SerializeField] [Tooltip("The dealer's hand, responsible for managing the dealer's hand and associated UI. Only used in Blackjack.")]
         private Hand dealerHand;
         
@@ -96,6 +98,7 @@ namespace Game
             if (playerHand.Cards.Count == gameType.MaxPlayerHand) return;
             if (toDealer) dealerHand.AddCard(_cardManager.GetCard());
             else playerHand.AddCard(_cardManager.GetCard());
+            _betManager.UpdateHandState(BlackJackImplementations.GetHandValue(playerHand.Cards, false).ToString());
         }
         
         private void Reset()
@@ -109,6 +112,9 @@ namespace Game
             onSceneEnter.Invoke();
             
             _betManager.SetStartingBank(gameType.startingBank);
+            
+            //Reset the gametype in case of messed up state.
+            gameType.Reset();
         }
         
         private void Awake()

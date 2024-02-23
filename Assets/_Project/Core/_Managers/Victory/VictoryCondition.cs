@@ -33,7 +33,6 @@ namespace Game.Victory
     [CreateAssetMenu(fileName = "New Victory Condition", menuName = "Game/Victory Condition", order = 0)]
     public class VictoryCondition : ScriptableObject
     {
-        //The         
         [SerializeField] [Tooltip("The type of victory")]
         public VictoryType victoryType;
         [SerializeField] [Tooltip("THe name to display on the victory message.")]

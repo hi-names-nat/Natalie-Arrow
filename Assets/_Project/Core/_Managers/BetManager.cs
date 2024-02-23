@@ -42,6 +42,11 @@ namespace _Project.Core._Managers
         /// The victory/defeat text instance
         /// </summary>
         [SerializeField] private TMP_Text endText;
+        
+        /// <summary>
+        /// The victory/defeat text instance
+        /// </summary>
+        [SerializeField] private TMP_Text handStateMessage;
 
         /// <summary>
         /// The bet multiplier, or initial bet
@@ -136,6 +141,17 @@ namespace _Project.Core._Managers
         public void HideEndMessage()
         {
             endText.gameObject.SetActive(false);
+        }
+        
+        public void UpdateHandState(string state)
+        {
+            handStateMessage.gameObject.SetActive(true);
+            handStateMessage.text = state;
+        }
+
+        public void HideHandState()
+        {
+            handStateMessage.gameObject.SetActive(false);
         }
     }
 }
