@@ -28,7 +28,11 @@ namespace Game
         private BaseGameType gameType;
         [SerializeField] [Tooltip("The victoryManager, Manages victory types and the such")]
         private VictoryManager victoryManager;
-
+        [SerializeField] [Tooltip("The player's hand, responsible for managing the player's hand and associated UI")] 
+        private Hand playerHand;
+        [SerializeField] [Tooltip("The dealer's hand, responsible for managing the dealer's hand and associated UI. Only used in Blackjack.")]
+        private Hand dealerHand;
+        
         [Header("Events")] 
         [SerializeField] [Tooltip("Called when the game is hard reset. Use for UI elements.")]
         private UnityEvent onReset;
@@ -39,10 +43,6 @@ namespace Game
         /// The cardmanager, responsible for managing the deck of cards
         /// </summary>
         private CardManager _cardManager;
-        /// <summary>
-        /// The hand, responsible for managing the player's hand and associated UI
-        /// </summary>
-        private Hand _hand;
         /// <summary>
         /// The bet manager, responsible for managing the player's bets and payouts.
         /// </summary>
@@ -55,29 +55,6 @@ namespace Game
         /// The bettable, responsible for managing the bet table.
         /// </summary>
         private BetTable _betTable;
-        
-        private void Awake()
-        {
-            _cardManager = new CardManager();
-            _hand = GetComponentInChildren<Hand>();
-            _betManager = GetComponentInChildren<BetManager>();
-            _buttonsManager = GetComponentInChildren<ButtonsManager>();
-            _betTable = GetComponentInChildren<BetTable>();
-        }
-
-        private void Reset()
-        {
-            _cardManager = new CardManager();
-            onReset.Invoke();
-        }
-
-        private void Start()
-        {
-            onSceneEnter.Invoke();
-            gameType.BeginGame();
-            
-            _betManager.SetStartingBank(gameType.startingBank);
-        }
 
         /// <summary>
         /// Function called by Button Manager to increase bet
@@ -86,8 +63,8 @@ namespace Game
         {
             _betManager.IncreaseBet();
             
-            _buttonsManager.SetDealEnabled(_betManager.CanPlaceBet());
-            _betTable.ScrollPanel(false);
+            _buttonsManager.SetDealClickable(_betManager.CanPlaceBet());
+            if (_betTable) _betTable.ScrollPanel(false);
 
         }
         
@@ -98,8 +75,8 @@ namespace Game
         {
             _betManager.DecreaseBet();
             
-            _buttonsManager.SetDealEnabled(_betManager.CanPlaceBet());
-            _betTable.ScrollPanel(true);
+            _buttonsManager.SetDealClickable(_betManager.CanPlaceBet());
+            if (_betTable) _betTable.ScrollPanel(true);
         }
         
         /// <summary>
@@ -107,7 +84,39 @@ namespace Game
         /// </summary>
         public void DealButtonPressed()
         {
-            gameType.ContinueGameLoop(_cardManager, _hand, victoryManager, _betManager, _buttonsManager);
+            gameType.ContinueGameLoop(_cardManager, playerHand, dealerHand, victoryManager, _betManager, _buttonsManager);
+        }
+
+        /// <summary>
+        /// Deals a single card to the player or dealer's hand. Used by the blackjack deal button.
+        /// </summary>
+        /// <param name="toDealer">should this card be dealt to the dealer? </param>
+        public void DealCard(bool toDealer = false)
+        {
+            if (playerHand.Cards.Count == gameType.MaxPlayerHand) return;
+            if (toDealer) dealerHand.AddCard(_cardManager.GetCard());
+            else playerHand.AddCard(_cardManager.GetCard());
+        }
+        
+        private void Reset()
+        {
+            _cardManager = new CardManager();
+            onReset.Invoke();
+        }
+
+        private void Start()
+        {
+            onSceneEnter.Invoke();
+            
+            _betManager.SetStartingBank(gameType.startingBank);
+        }
+        
+        private void Awake()
+        {
+            _cardManager = new CardManager();
+            _betManager = GetComponentInChildren<BetManager>();
+            _buttonsManager = GetComponentInChildren<ButtonsManager>();
+            _betTable = GetComponentInChildren<BetTable>();
         }
     }
 }

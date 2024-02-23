@@ -28,21 +28,18 @@ namespace Game.Victory
         ThreeOfAKind,
         TwoPair,
         JacksOrBetter,
-        Etc,
     }
     
     [CreateAssetMenu(fileName = "New Victory Condition", menuName = "Game/Victory Condition", order = 0)]
     public class VictoryCondition : ScriptableObject
     {
         //The         
-        [SerializeField] public VictoryType victoryType;
-        [SerializeField] public string victoryName;
-
+        [SerializeField] [Tooltip("The type of victory")]
+        public VictoryType victoryType;
+        [SerializeField] [Tooltip("THe name to display on the victory message.")]
+        public string victoryName;
         
-        /// <summary>
-        /// If this is a jackpot. When the betmanager is on max, jackpot payout is payed out instead of the standard payout.
-        /// </summary>
-        [SerializeField] [Tooltip("If set, when betmanager is set on max, the jackpot payout is paid out, ignoring the bet multiplier")]
+        [SerializeField] [Tooltip("If set, when betmanager is set on max jackpot is paid, ignoring the bet multiplier")]
         public bool isJackpot;
         [SerializeField] [Tooltip("The jackpot payout to pay out")]
         public int jackpotPayout;
@@ -70,7 +67,7 @@ namespace Game.Victory
         /// </summary>
         /// <param name="cards">the hand to check</param>
         /// <returns>If the hand satisfied the victory check</returns>
-        public bool IsSatisfied(List<Card> cards)
+        public virtual bool IsSatisfied(List<Card> cards)
         {
             return VictoryTable[victoryType].Invoke(cards);
         }

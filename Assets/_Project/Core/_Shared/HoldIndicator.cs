@@ -13,13 +13,10 @@
  * 
  ***********************************************************/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.UI.Cards
 {
-
  public class HoldIndicator : MonoBehaviour
  {
   /// <summary>

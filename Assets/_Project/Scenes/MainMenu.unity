@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &144254654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 212567174747617571, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+  m_PrefabInstance: {fileID: 6756771692105824176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bec57398ac1f24c97457fd39fc94c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &389366511 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6868375900820153336, guid: e75d4e4294574774fb387e4720211c90, type: 3}
@@ -512,6 +523,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6449888231096341118, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 144254654}
+    - target: {fileID: 6449888231096341118, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSelectedScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449888231096341118, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadScene, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449888231096341118, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6868375900820153336, guid: e75d4e4294574774fb387e4720211c90, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -639,4 +666,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bec57398ac1f24c97457fd39fc94c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneIndex: 1
