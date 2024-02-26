@@ -13,6 +13,8 @@
 using System;
 using System.Collections.Generic;
 using Game.Cards;
+using Game.Poker;
+using Game.Poker.Victory;
 using UnityEngine;
 
 namespace Game.Victory
@@ -28,6 +30,14 @@ namespace Game.Victory
         ThreeOfAKind,
         TwoPair,
         JacksOrBetter,
+        FourDeuces,
+        FlushWDeuces,
+        FiveOfAKind,
+    }
+
+    public struct GameStateData
+    {
+        private bool wildDeuces;
     }
     
     [CreateAssetMenu(fileName = "New Victory Condition", menuName = "Game/Victory Condition", order = 0)]
@@ -48,7 +58,7 @@ namespace Game.Victory
         
         
         //Static lookup table for what each VictoryType method is attached to what enum.
-        private static readonly Dictionary<VictoryType, Func<List<Card>, bool>> VictoryTable = new()
+        private static readonly Dictionary<VictoryType, Func<List<Card>, PokerSettings, bool>> VictoryTable = new()
         {
             { VictoryType.RoyalFlush, StandardPokerVictoryImplementations.RoyalFlush },
             { VictoryType.StraightFlush, StandardPokerVictoryImplementations.StraightFlush },
@@ -58,17 +68,21 @@ namespace Game.Victory
             { VictoryType.Straight, StandardPokerVictoryImplementations.Straight },
             { VictoryType.ThreeOfAKind, StandardPokerVictoryImplementations.ThreeKind },
             { VictoryType.TwoPair, StandardPokerVictoryImplementations.TwoPair },
-            { VictoryType.JacksOrBetter, SpecialtyVictoryImplementations.JacksOrBetter}
+            { VictoryType.JacksOrBetter, SpecialtyVictoryImplementations.JacksOrBetter},
+            { VictoryType.FourDeuces, SpecialtyVictoryImplementations.FourDeuces },
+            { VictoryType.FlushWDeuces, SpecialtyVictoryImplementations.RoyalFlushWithDeuces },
+            { VictoryType.FiveOfAKind, SpecialtyVictoryImplementations.FiveOfAKind },
         };
 
         /// <summary>
         /// Forwarder function using the dictionary checking if this victory condition has been satisfied
         /// </summary>
         /// <param name="cards">the hand to check</param>
+        /// <param name="settings">The pokersettings struct, for fine handling (i.e. wild twos)</param>
         /// <returns>If the hand satisfied the victory check</returns>
-        public virtual bool IsSatisfied(List<Card> cards)
+        public virtual bool IsSatisfied(List<Card> cards, PokerSettings settings)
         {
-            return VictoryTable[victoryType].Invoke(cards);
+            return VictoryTable[victoryType].Invoke(cards, settings);
         }
     }
 }

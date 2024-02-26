@@ -30,6 +30,12 @@ namespace Game.Poker
         End,
         Reset
     }
+
+    [Serializable]
+    public struct PokerSettings
+    {
+        public bool wildDeuces;
+    }
     
     [CreateAssetMenu(fileName = "New Poker Gametype", menuName = "Game/GameType/Poker", order = 0)]
     public class PokerGameType : BaseGameType
@@ -43,6 +49,8 @@ namespace Game.Poker
         /// The current state of the game. Enters on Entry, obviously.
         /// </summary>
         private State _state = State.Entry;
+
+        [SerializeField] private PokerSettings fineSettings;
 
         /// <summary>
         /// The main state manager. Enables/Disables components and functionality as the game progresses. 
@@ -90,7 +98,7 @@ namespace Game.Poker
         /// <param name="betManager">The bet manager, to lock in a bet</param>
         /// <param name="buttonsManager">The buttons manager, to disable changing the bet after it's set.</param>
         /// <param name="victoryManager">The victory manager, to do card state victory checking.</param>
-        private static void InitialDeal(
+        private void InitialDeal(
             CardManager cardManager, Hand handManager, BetManager betManager, ButtonsManager buttonsManager, VictoryManager victoryManager)
         {
             var cards = cardManager.GetCards(HandSize);
@@ -102,7 +110,7 @@ namespace Game.Poker
             handManager.EnableUiCardInteraction();
 
             //Display the current state of the hand, if it would win.
-            var currentstate = victoryManager.FindIfWon(handManager.Cards);
+            var currentstate = victoryManager.FindIfWon(handManager.Cards, fineSettings);
             if (currentstate != null) betManager.UpdateHandState(currentstate.victoryName);
         }
 
@@ -113,7 +121,7 @@ namespace Game.Poker
         /// <param name="handManager">The hand to remove / add new cards to</param>
         /// <param name="victoryManager">The victory manager, to check if the player's hand is a winning hand</param>
         /// <param name="betManager">The bet manager, to update the hand state HUD in the case that there's a winning hand</param>
-        private static void ReDeal(
+        private void ReDeal(
             CardManager cardManager, Hand handManager, VictoryManager victoryManager, BetManager betManager)
         {
             var cards = handManager.RemoveUnheldCards();
@@ -126,7 +134,7 @@ namespace Game.Poker
             handManager.DisableUiCardInteraction();
                         
             //Display the current state of the hand, if it would win, or hide if none.
-            var currentstate = victoryManager.FindIfWon(handManager.Cards);
+            var currentstate = victoryManager.FindIfWon(handManager.Cards, fineSettings);
             if (currentstate != null) betManager.UpdateHandState(currentstate.victoryName);
             else betManager.HideHandState();
 
@@ -138,11 +146,11 @@ namespace Game.Poker
         /// <param name="handManager">The player's hand</param>
         /// <param name="victoryManager">The victorymanager to get the victory conditions from</param>
         /// <param name="betManager">The bet manager, to display both end game text and update the bank</param>
-        private static void EndGame(
+        private void EndGame(
             Hand handManager, VictoryManager victoryManager, BetManager betManager)
         {
             //Get if the player has a winning hand. Returns null if they do not.
-            var victoryCondition = victoryManager.FindIfWon(handManager.Cards);
+            var victoryCondition = victoryManager.FindIfWon(handManager.Cards, fineSettings);
             if (victoryCondition != null)
             {
                 //Different behaviors for if it was a jackpot (max value, max bet) or not.

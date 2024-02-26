@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Cards;
+using Game.Poker;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -30,9 +31,9 @@ namespace Game.Victory
         /// </summary>
         /// <param name="hand">the hand to check against</param>
         /// <returns>the VictoryCondition that was satisfied, or null if none were satisfied</returns>
-        public VictoryCondition FindIfWon(List<Card> hand)
+        public VictoryCondition FindIfWon(List<Card> hand, PokerSettings settings)
         {
-            return victoryConditions.FirstOrDefault(victoryCondition => victoryCondition.IsSatisfied(hand));
+            return victoryConditions.FirstOrDefault(victoryCondition => victoryCondition.IsSatisfied(hand, settings));
         }
     }
 }

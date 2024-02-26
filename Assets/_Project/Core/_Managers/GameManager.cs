@@ -95,7 +95,7 @@ namespace Game
         /// <param name="toDealer">should this card be dealt to the dealer? </param>
         public void DealCard(bool toDealer = false)
         {
-            if (playerHand.Cards.Count == gameType.MaxPlayerHand) return;
+            if (playerHand.Cards.Count == gameType.maxPlayerHand) return;
             if (toDealer) dealerHand.AddCard(_cardManager.GetCard());
             else playerHand.AddCard(_cardManager.GetCard());
             _betManager.UpdateHandState(BlackJackImplementations.GetHandValue(playerHand.Cards, false).ToString());

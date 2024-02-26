@@ -303,6 +303,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 692099825677692120, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_text
+      value: WILD TWOS
+      objectReference: {fileID: 0}
+    - target: {fileID: 692099825677692120, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_fontSize
+      value: 65.9
+      objectReference: {fileID: 0}
     - target: {fileID: 775914082804745534, guid: e75d4e4294574774fb387e4720211c90, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -358,6 +366,34 @@ PrefabInstance:
     - target: {fileID: 2316647639591205823, guid: e75d4e4294574774fb387e4720211c90, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6756771692105824180}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSelectedScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadScene, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776952544145780281, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3552198006966925287, guid: e75d4e4294574774fb387e4720211c90, type: 3}
       propertyPath: m_Pivot.x
@@ -567,6 +603,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7500275858726616734, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+      propertyPath: m_Name
+      value: Wild Duces
+      objectReference: {fileID: 0}
     - target: {fileID: 7928626701268057357, guid: e75d4e4294574774fb387e4720211c90, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -667,3 +707,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 1
+--- !u!1 &6756771692105824179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7500275858726616734, guid: e75d4e4294574774fb387e4720211c90, type: 3}
+  m_PrefabInstance: {fileID: 6756771692105824176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6756771692105824180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756771692105824179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bec57398ac1f24c97457fd39fc94c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneIndex: 3

@@ -17,6 +17,7 @@ using Game.Cards;
 using Game.UI;
 using Game.Victory;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -29,7 +30,7 @@ namespace Game
         public float startingBank = 100;
 
         [SerializeField] [Tooltip("The player's maximum hand size")]
-        public int MaxPlayerHand = 13;
+        public int maxPlayerHand = 13;
 
         /// <summary>
         /// Called when the game continues
@@ -49,8 +50,6 @@ namespace Game
         }
 
         public virtual void Reset()
-        {
-            throw new NotImplementedException();
-        }
+        { }
     }
 }
