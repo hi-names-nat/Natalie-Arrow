@@ -19,6 +19,9 @@ using UnityEngine;
 
 namespace Game.Victory
 {
+    /// <summary>
+    /// The type of victory. Used to lookup implementations
+    /// </summary>
     public enum VictoryType
     {
         RoyalFlush,
@@ -34,12 +37,10 @@ namespace Game.Victory
         FlushWDeuces,
         FiveOfAKind,
     }
-
-    public struct GameStateData
-    {
-        private bool wildDeuces;
-    }
     
+    /// <summary>
+    /// A scriptable object that deals with a single poker victory condition
+    /// </summary>
     [CreateAssetMenu(fileName = "New Victory Condition", menuName = "Game/Victory Condition", order = 0)]
     public class VictoryCondition : ScriptableObject
     {

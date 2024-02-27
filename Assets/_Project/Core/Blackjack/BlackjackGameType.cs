@@ -36,6 +36,11 @@ namespace Game.Blackjack
         [SerializeField] [Tooltip("The payout when the player hits a blackjack. Not multiplied.")] 
         private int jackpotPayout;
         
+        private const string StayText = "Stay", DealText = "Deal";
+        private const string PlayerWinMsg = "Player Wins", PlayerJackpotMsg = "Player Wins: Jackpot";
+        private const string PlayerLoseMsg = "Dealer Wins";
+
+
         
         /// <summary>
         /// The current state of the game. Enters on Entry, obviously.
@@ -92,7 +97,7 @@ namespace Game.Blackjack
             //Set the initial message for the player's hand value
             betManager.UpdateHandState(BlackJackImplementations.GetHandValue(playerHand.Cards, false).ToString());
             
-            buttonsManager.SetButtonText("Stay", UIButtons.Deal);
+            buttonsManager.SetButtonText(StayText, UIButtons.Deal);
         }
         
         /// <summary>
@@ -126,24 +131,24 @@ namespace Game.Blackjack
             var goalScore = BlackJackImplementations.goalScore;
             if (goalScore - playerValue < 0 || dealerValue == goalScore)
             {
-                betManager.ShowEndMessage("Dealer wins");
+                betManager.ShowEndMessage(PlayerLoseMsg);
                 return;
             }
             
             if (playerValue == goalScore)
             {
-                betManager.ShowEndMessage("Player Wins:  Jackpot");
+                betManager.ShowEndMessage(PlayerJackpotMsg);
                 betManager.UpdateBank(jackpotPayout, true);
                 return;
             }
 
             if (goalScore-dealerValue < goalScore-playerValue && goalScore-dealerValue > 0)
             {
-                betManager.ShowEndMessage("Dealer wins");
+                betManager.ShowEndMessage(PlayerLoseMsg);
                 return;
             }
             
-            betManager.ShowEndMessage("Player Wins");
+            betManager.ShowEndMessage(PlayerWinMsg);
             betManager.UpdateBank(payout, false);
         }
 
@@ -178,7 +183,7 @@ namespace Game.Blackjack
             //Hide hand state (numeric value)
             betManager.HideHandState();
             
-            buttonsManager.SetButtonText("Deal", UIButtons.Deal);
+            buttonsManager.SetButtonText(DealText, UIButtons.Deal);
             buttonsManager.SetBlackJackDealEnabled(false);
         }
         

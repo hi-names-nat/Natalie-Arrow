@@ -18,6 +18,9 @@ using Game.UI.Cards;
 
 namespace Game.Cards
 {
+    /// <summary>
+    /// Acts as a hand of card. Used for both the player & dealer in blackjack.
+    /// </summary>
     public class Hand : MonoBehaviour
     {
         

@@ -16,18 +16,29 @@ using UnityEngine;
 
 namespace _Project.Core._Managers
 {
+    /// <summary>
+    /// Manages both the player's bank, current bet, and UI associated.
+    /// </summary>
     public class BetManager: MonoBehaviour
     {
         /// <summary>
         /// The maximum allowable bet modifier
         /// </summary>
         private const int MaxBetModifier = 5;
-
+        
+        /// <summary>
+        /// The bet multiplier, or initial bet
+        /// </summary>
+        private int BetMultiplier { get; set; } = 1;
+        /// <summary>
+        /// The player's bank
+        /// </summary>
+        private float Bank { get; set; }
+        
         /// <summary>
         /// An action that is called when money is payed out, includes as a parameter how much was payed out.
         /// </summary>
         public event Action<int> OnPayout;
-
         
         /// <summary>
         /// The Text instance that is the initial bet, or bet modifier
@@ -47,15 +58,6 @@ namespace _Project.Core._Managers
         /// The victory/defeat text instance
         /// </summary>
         [SerializeField] private TMP_Text handStateMessage;
-
-        /// <summary>
-        /// The bet multiplier, or initial bet
-        /// </summary>
-        private int BetMultiplier { get; set; } = 1;
-        /// <summary>
-        /// The player's bank
-        /// </summary>
-        private float Bank { get; set; }
 
         /// <summary>
         /// Sets the starting bank

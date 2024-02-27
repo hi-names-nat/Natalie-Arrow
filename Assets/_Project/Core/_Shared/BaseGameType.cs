@@ -17,7 +17,6 @@ using Game.Cards;
 using Game.UI;
 using Game.Victory;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game
 {

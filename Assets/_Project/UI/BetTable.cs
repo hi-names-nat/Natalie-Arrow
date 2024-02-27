@@ -16,6 +16,9 @@ using UnityEngine.UI;
 
 namespace Game.UI.Cards
 {
+    /// <summary>
+    /// Handles the bet table in the poker gametypes.
+    /// </summary>
     public class BetTable : MonoBehaviour
     {
         
@@ -29,13 +32,11 @@ namespace Game.UI.Cards
         /// The current index in panels of the selected panel.
         /// </summary>
         private int _selectedPanelIndex;
-        
-        private void Awake()
-        {
-            panels[0].color = selectedColor;
-            _selectedPanelIndex = 0;
-        }
 
+        /// <summary>
+        /// Moves the selected panel (the part that is red) either up the bet table or down
+        /// </summary>
+        /// <param name="lowering">Should the bet table be lowered? if not, it's raised.</param>
         public void ScrollPanel(bool lowering)
         {
             if (lowering)
@@ -54,6 +55,12 @@ namespace Game.UI.Cards
                 _selectedPanelIndex++;
                 panels[_selectedPanelIndex].color = selectedColor;
             }
+        }
+        
+        private void Awake()
+        {
+            panels[0].color = selectedColor;
+            _selectedPanelIndex = 0;
         }
     }
 }

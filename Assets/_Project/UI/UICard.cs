@@ -35,7 +35,14 @@ namespace Game.UI.Cards
         /// </summary>
         private Button _button;
 
+        /// <summary>
+        /// The face side of the card
+        /// </summary>
         private Sprite cardFace;
+        
+        /// <summary>
+        /// The UI image that shows the card sprite.
+        /// </summary>
         private Image cardImage;
         
         /// <summary>
@@ -43,27 +50,10 @@ namespace Game.UI.Cards
         /// </summary>
         public bool Held { get; private set; } = false;
 
+        /// <summary>
+        /// If the UI card is currently hidden (face-down)
+        /// </summary>
         public bool Hidden { get; private set; } = false;
-        
-        private void Awake()
-        {
-            _button = GetComponent<Button>();
-            _holdIndicator = GetComponentInChildren<HoldIndicator>(true);
-            cardImage = GetComponentInChildren<Image>();
-            cardFace = cardImage.sprite;
-        }
-
-        protected void OnEnable()
-        {
-            _button.onClick.AddListener(OnPressed);
-            EnableInteract();
-        }
-
-        protected void OnDisable()
-        {
-            _button.onClick.RemoveListener(OnPressed);
-            DisableInteract();
-        }
 
         /// <summary>
         /// Enable the clickable behavior on the card
@@ -83,12 +73,18 @@ namespace Game.UI.Cards
             if (_holdIndicator != null) _holdIndicator.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Sets the card to be hidden (showing the back)
+        /// </summary>
         public void SetCardHidden()
         {
             Hidden = true;
             cardImage.sprite = cardBack;
         }
 
+        /// <summary>
+        /// Sets the card visible (showing the face)
+        /// </summary>
         public void SetCardShown()
         {
             Hidden = false;
@@ -102,6 +98,26 @@ namespace Game.UI.Cards
         {
             Held = !Held;
             if (_holdIndicator != null) _holdIndicator.SetHeld(Held);
+        }
+        
+        private void Awake()
+        {
+            _button = GetComponent<Button>();
+            _holdIndicator = GetComponentInChildren<HoldIndicator>(true);
+            cardImage = GetComponentInChildren<Image>();
+            cardFace = cardImage.sprite;
+        }
+
+        protected void OnEnable()
+        {
+            _button.onClick.AddListener(OnPressed);
+            EnableInteract();
+        }
+
+        protected void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnPressed);
+            DisableInteract();
         }
     }
 }

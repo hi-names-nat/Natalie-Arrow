@@ -11,13 +11,15 @@
  * 
  ***********************************************************/
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Cards;
 
 namespace Game.Poker.Victory
 {
+    /// <summary>
+    /// Class for everything for the standard poker gameplay modes. Most support deuces wild.
+    /// </summary>
     public static class StandardPokerVictoryImplementations
     {
         /// <summary>

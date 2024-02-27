@@ -17,6 +17,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// An enum for each button that can be modified.
+    /// </summary>
     public enum UIButtons
     {
         BetUp,
@@ -24,6 +27,9 @@ namespace Game.UI
         Deal,
         BlackJackDeal
     }
+    /// <summary>
+    /// Manages the buttons in the UI.
+    /// </summary>
     public class ButtonsManager : MonoBehaviour
     {
 

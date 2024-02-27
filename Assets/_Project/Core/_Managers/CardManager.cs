@@ -17,6 +17,9 @@ using UnityEngine;
 
 namespace Game.Cards
 {
+    /// <summary>
+    /// Enum to represent a card's suit
+    /// </summary>
     [Serializable]
     public enum Suit: uint
     {
@@ -26,6 +29,9 @@ namespace Game.Cards
         Diamond = 3,
     }
 
+    /// <summary>
+    /// Enum to represent a card's Rank. Ace is ranked after Ten here.
+    /// </summary>
     [Serializable]
     public enum Rank: uint
     {
@@ -93,6 +99,9 @@ namespace Game.Cards
         }
     }
 
+    /// <summary>
+    /// Handles the card stack.
+    /// </summary>
     public class CardManager
     { 
         private Queue<Card> _cardStack;

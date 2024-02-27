@@ -1,4 +1,15 @@
-﻿using System.Collections.Generic;
+﻿/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/18/23
+ *
+ * What: BlackJackImplementations.cs
+ *
+ * Function: Handles blackjack-specific game logic.
+ * Specifically for getting the value of a hand.
+ *
+ ***********************************************************/
+using System.Collections.Generic;
 using System.Linq;
 using Game.Cards;
 

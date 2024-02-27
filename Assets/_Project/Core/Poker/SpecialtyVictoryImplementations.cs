@@ -16,6 +16,9 @@ using Game.Cards;
 
 namespace Game.Poker.Victory
 {
+    /// <summary>
+    /// Class containing gametype-specific victory types.
+    /// </summary>
     public static class SpecialtyVictoryImplementations
     {
         /// <summary>

@@ -19,7 +19,9 @@ using UnityEngine.Serialization;
 
 namespace Game.Victory
 {
-    
+    /// <summary>
+    /// Poker victory manager. Basically just forwards from the gametype to the individual implementations.
+    /// </summary>
     [Serializable]
     public class VictoryManager
     {

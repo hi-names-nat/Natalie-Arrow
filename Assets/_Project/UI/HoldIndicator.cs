@@ -17,6 +17,9 @@ using UnityEngine;
 
 namespace Game.UI.Cards
 {
+ /// <summary>
+ /// Simple type that handles the UICard rendering.
+ /// </summary>
  public class HoldIndicator : MonoBehaviour
  {
   /// <summary>

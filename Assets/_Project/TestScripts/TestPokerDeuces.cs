@@ -10,15 +10,16 @@
  * 
  ***********************************************************/
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Game.Poker;
 using Game.Poker.Victory;
 using NUnit.Framework;
-using UnityEngine.TestTools;
 
 namespace Game.Cards
 {
+    /// <summary>
+    /// Test framework for the wild deuces poker gametype.
+    /// </summary>
     public class TestPokerDeuces
     {
         Func<List<Card>, PokerSettings, bool> TestedMethod;

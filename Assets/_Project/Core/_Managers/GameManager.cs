@@ -22,6 +22,9 @@ using UnityEngine.Events;
 
 namespace Game
 {
+    /// <summary>
+    /// The global game manager, handles gametype agnoistic things.
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
         [Header("Game State")]

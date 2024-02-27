@@ -31,12 +31,18 @@ namespace Game.Poker
         Reset
     }
 
+    /// <summary>
+    /// The settings of the game. Currently only holds if wildDeuces is enabled.
+    /// </summary>
     [Serializable]
     public struct PokerSettings
     {
         public bool wildDeuces;
     }
     
+    /// <summary>
+    /// Handles all gameflow for the poker gametype.
+    /// </summary>
     [CreateAssetMenu(fileName = "New Poker Gametype", menuName = "Game/GameType/Poker", order = 0)]
     public class PokerGameType : BaseGameType
     {
