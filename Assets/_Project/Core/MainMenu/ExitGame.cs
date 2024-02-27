@@ -5,11 +5,7 @@
  * 
  * What: ExitGame.cs
  * 
- * Function: ...
- *
- * TODO: ...
- *
- * Say thank you on the way out!
+ * Function: Quit the game
  * 
  ***********************************************************/
 
