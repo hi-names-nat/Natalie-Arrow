@@ -2,6 +2,9 @@
 This project was created for Arrow International by Natalie Soltis.
 It contains an implementation of Poker (Jacks or better & Wild Deuces) and BlackJack.
 
+## Quitting
+To quit, go to the main menu and then hit ESC.
+
 ## Credits
 
 - ["PIXEL FANTASY PLAYING CARDS"](https://cazwolf.itch.io/pixel-fantasy-cards) by `Caz` from `itch.io`. 
