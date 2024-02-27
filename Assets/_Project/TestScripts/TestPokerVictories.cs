@@ -1,8 +1,18 @@
+/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/15/23
+ * 
+ * What: CardStackTests.cs
+ * 
+ * Function: Contains tests for the standard poker victory types.
+ *
+ * 
+ ***********************************************************/
 using System;
 using System.Collections.Generic;
 using Game.Poker;
 using Game.Poker.Victory;
-using Game.Victory;
 using NUnit.Framework;
 
 namespace Game.Cards

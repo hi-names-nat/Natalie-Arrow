@@ -1,3 +1,14 @@
+/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/15/23
+ * 
+ * What: CardStackTests.cs
+ * 
+ * Function: Contains tests for the card manager.
+ *
+ * 
+ ***********************************************************/
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;

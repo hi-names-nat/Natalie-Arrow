@@ -1,4 +1,16 @@
-﻿using System.Collections.Generic;
+﻿/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/15/23
+ * 
+ * What: TestGetHandValue.cs
+ * 
+ * Function: Contains tests for the blackjack system to get
+ * hand value.
+ *
+ * 
+ ***********************************************************/
+using System.Collections.Generic;
 using Game.Blackjack;
 using NUnit.Framework;
 

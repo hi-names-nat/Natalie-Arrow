@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/15/23
+ * 
+ * What: TestPokerDeuces.cs
+ * 
+ * Function: Contains tests for the Wild Twos poker gametype
+ *
+ * 
+ ***********************************************************/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Poker;

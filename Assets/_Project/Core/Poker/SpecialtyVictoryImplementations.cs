@@ -1,3 +1,15 @@
+/*************************************************************
+ *
+ * Author: Natalie Soltis
+ * Date: 2/23/23
+ * 
+ * What: SpecialityVictoryImplementations.cs
+ * 
+ * Function: Contains all the victory state checks that are for specific gamemodes. Jacks/Deuces.
+ * All static as it's called by the scriptableobject.
+ *
+ * 
+ ***********************************************************/
 using System.Collections.Generic;
 using System.Linq;
 using Game.Cards;
